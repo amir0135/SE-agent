@@ -11,6 +11,7 @@
     "entraClientId": { "value": "${SEAGENT_ENTRA_CLIENT_ID=}" },
     "entraClientSecret": { "value": "${SEAGENT_ENTRA_CLIENT_SECRET=}" },
     "enableEasyAuth": { "value": "${SEAGENT_ENABLE_EASY_AUTH=false}" },
-    "easyAuthClientId": { "value": "${SEAGENT_EASY_AUTH_CLIENT_ID=}" }
+    "easyAuthClientId": { "value": "${SEAGENT_EASY_AUTH_CLIENT_ID=}" },
+    "minReplicas": { "value": "${SEAGENT_MIN_REPLICAS=0}" }
   }
 }

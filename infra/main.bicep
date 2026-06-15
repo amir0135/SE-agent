@@ -31,6 +31,9 @@ param enableEasyAuth bool = false
 @description('Entra app (client) ID fronting the worker for Easy Auth.')
 param easyAuthClientId string = ''
 
+@description('Minimum container replicas. 0 = scale-to-zero; 1 = always warm.')
+param minReplicas int = 0
+
 var tags = { 'azd-env-name': environmentName }
 
 resource rg 'Microsoft.Resources/resourceGroups@2024-03-01' = {
@@ -54,6 +57,7 @@ module resources 'resources.bicep' = {
     entraClientSecret: entraClientSecret
     enableEasyAuth: enableEasyAuth
     easyAuthClientId: easyAuthClientId
+    minReplicas: minReplicas
   }
 }
 

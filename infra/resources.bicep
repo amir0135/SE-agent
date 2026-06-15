@@ -40,6 +40,11 @@ param easyAuthClientId string = ''
 @description('Tenant ID for the Easy Auth login authority. Defaults to the subscription tenant.')
 param easyAuthTenantId string = subscription().tenantId
 
+@description('Minimum container replicas. 0 = scale-to-zero (cheapest, cold starts); 1 = always warm (no cold start).')
+@minValue(0)
+@maxValue(5)
+param minReplicas int = 0
+
 var tags = { 'azd-env-name': namePrefix, app: 'cloud-msx-worker' }
 var resourceToken = uniqueString(subscription().id, resourceGroup().id, namePrefix)
 
@@ -208,7 +213,7 @@ resource worker 'Microsoft.App/containerApps@2024-03-01' = {
           ]
         }
       ]
-      scale: { minReplicas: 0, maxReplicas: 3 }
+      scale: { minReplicas: minReplicas, maxReplicas: 3 }
     }
   }
   dependsOn: [ acrPull, kvSecretsUser ]
