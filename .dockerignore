@@ -1,0 +1,11 @@
+# Build context excludes
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.git/
+.env
+specs/
+tests/
+*.md
+!README.md

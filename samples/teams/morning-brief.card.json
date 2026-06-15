@@ -1,0 +1,113 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Good morning, ${user}. Here's your day — ${date}.",
+      "weight": "Bolder",
+      "size": "Large",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "🗓  MEETINGS — ${meetings.count} today",
+      "weight": "Bolder",
+      "spacing": "Medium"
+    },
+    {
+      "type": "Container",
+      "$data": "${meetings.items}",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "• ${time} · ${customer} ${kind} — ${status}",
+          "wrap": true
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "✅  DECISIONS NEEDED — ${decisions.count} (tap to act)",
+      "weight": "Bolder",
+      "spacing": "Medium"
+    },
+    {
+      "type": "Container",
+      "$data": "${decisions.items}",
+      "separator": true,
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "${index}. ${summary}",
+          "wrap": true
+        },
+        {
+          "type": "ActionSet",
+          "actions": [
+            {
+              "type": "Action.Submit",
+              "title": "Approve",
+              "style": "positive",
+              "data": { "decision": "approve", "action_id": "${action_id}", "draft_id": "${draft_id}" }
+            },
+            {
+              "type": "Action.Submit",
+              "title": "Edit",
+              "data": { "decision": "edit", "action_id": "${action_id}" }
+            },
+            {
+              "type": "Action.Submit",
+              "title": "Skip",
+              "data": { "decision": "skip", "action_id": "${action_id}" }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "🤖  HANDLED FOR YOU",
+      "weight": "Bolder",
+      "spacing": "Medium"
+    },
+    {
+      "type": "Container",
+      "$data": "${handled}",
+      "items": [
+        { "type": "TextBlock", "text": "• ${$data}", "wrap": true, "isSubtle": true }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "⏰  DEADLINES",
+      "weight": "Bolder",
+      "spacing": "Medium"
+    },
+    {
+      "type": "Container",
+      "$data": "${deadlines}",
+      "items": [
+        { "type": "TextBlock", "text": "• ${item} due ${due} — blocked ${blocked}", "wrap": true }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "📊  PIPELINE",
+      "weight": "Bolder",
+      "spacing": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${pipeline.count} opps need attention — staged updates ready.",
+      "wrap": true
+    },
+    {
+      "type": "ActionSet",
+      "actions": [
+        { "type": "Action.Submit", "title": "Review pipeline", "data": { "action": "review_pipeline" } }
+      ]
+    }
+  ]
+}

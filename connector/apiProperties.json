@@ -1,0 +1,9 @@
+{
+  "properties": {
+    "connectionParameters": {},
+    "iconBrandColor": "#0078D4",
+    "capabilities": ["actions"],
+    "publisher": "SE-Agent",
+    "stackOwner": "SE-Agent"
+  }
+}

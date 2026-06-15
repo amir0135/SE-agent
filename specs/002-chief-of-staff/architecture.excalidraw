@@ -1,0 +1,55 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "copilot",
+  "elements": [
+    { "type": "text", "x": 40, "y": 20, "width": 900, "height": 40, "text": "Chief of Staff — Perceive → Decide → Delegate → Report", "fontSize": 30, "fontFamily": 2, "strokeColor": "#000000", "id": "title", "textAlign": "left", "verticalAlign": "top" },
+
+    { "type": "rectangle", "x": 40, "y": 90, "width": 230, "height": 470, "strokeColor": "#0078D4", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roundness": { "type": 3 }, "id": "c_signals" },
+    { "type": "text", "x": 60, "y": 100, "width": 200, "height": 25, "text": "① SIGNALS (perceive)", "fontSize": 16, "fontFamily": 2, "strokeColor": "#000000", "id": "t_signals", "textAlign": "left", "verticalAlign": "top" },
+    { "type": "rectangle", "x": 60, "y": 140, "width": 190, "height": 80, "strokeColor": "#0078D4", "backgroundColor": "#CFE4FA", "fillStyle": "solid", "strokeWidth": 1, "roundness": { "type": 3 }, "id": "b_out" },
+    { "type": "text", "x": 75, "y": 158, "width": 165, "height": 50, "text": "Outlook\nmail, flags, deadlines", "fontSize": 13, "fontFamily": 2, "strokeColor": "#000000", "id": "t_out", "textAlign": "left", "verticalAlign": "top" },
+    { "type": "rectangle", "x": 60, "y": 235, "width": 190, "height": 80, "strokeColor": "#0078D4", "backgroundColor": "#CFE4FA", "fillStyle": "solid", "strokeWidth": 1, "roundness": { "type": 3 }, "id": "b_cal" },
+    { "type": "text", "x": 75, "y": 253, "width": 165, "height": 50, "text": "Calendar\nmeetings, gaps, focus", "fontSize": 13, "fontFamily": 2, "strokeColor": "#000000", "id": "t_cal", "textAlign": "left", "verticalAlign": "top" },
+    { "type": "rectangle", "x": 60, "y": 330, "width": 190, "height": 80, "strokeColor": "#0078D4", "backgroundColor": "#CFE4FA", "fillStyle": "solid", "strokeWidth": 1, "roundness": { "type": 3 }, "id": "b_teams" },
+    { "type": "text", "x": 75, "y": 348, "width": 165, "height": 50, "text": "Teams\npod chats, @-mentions", "fontSize": 13, "fontFamily": 2, "strokeColor": "#000000", "id": "t_teams", "textAlign": "left", "verticalAlign": "top" },
+    { "type": "rectangle", "x": 60, "y": 425, "width": 190, "height": 80, "strokeColor": "#0078D4", "backgroundColor": "#CFE4FA", "fillStyle": "solid", "strokeWidth": 1, "roundness": { "type": 3 }, "id": "b_msx" },
+    { "type": "text", "x": 75, "y": 443, "width": 165, "height": 50, "text": "MSX / Dynamics\nopps, milestones", "fontSize": 13, "fontFamily": 2, "strokeColor": "#000000", "id": "t_msx", "textAlign": "left", "verticalAlign": "top" },
+
+    { "type": "rectangle", "x": 330, "y": 90, "width": 360, "height": 470, "strokeColor": "#107C10", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roundness": { "type": 3 }, "id": "c_brain" },
+    { "type": "text", "x": 350, "y": 100, "width": 330, "height": 25, "text": "CHIEF OF STAFF  (Copilot Studio orchestrator)", "fontSize": 15, "fontFamily": 2, "strokeColor": "#000000", "id": "t_brain", "textAlign": "left", "verticalAlign": "top" },
+    { "type": "rectangle", "x": 350, "y": 140, "width": 320, "height": 70, "strokeColor": "#107C10", "backgroundColor": "#DFF6DD", "fillStyle": "solid", "strokeWidth": 1, "roundness": { "type": 3 }, "id": "b_perceive" },
+    { "type": "text", "x": 365, "y": 160, "width": 290, "height": 35, "text": "Normalize each signal → Signal record", "fontSize": 13, "fontFamily": 2, "strokeColor": "#000000", "id": "tp", "textAlign": "left", "verticalAlign": "top" },
+    { "type": "rectangle", "x": 350, "y": 225, "width": 320, "height": 95, "strokeColor": "#107C10", "backgroundColor": "#DFF6DD", "fillStyle": "solid", "strokeWidth": 1, "roundness": { "type": 3 }, "id": "b_decide" },
+    { "type": "text", "x": 365, "y": 240, "width": 290, "height": 75, "text": "② DECIDE — priority rubric\nP1 win ▸ P2 pod/mgr ▸ P3 compliance\n▸ P4 hygiene ▸ noise", "fontSize": 13, "fontFamily": 2, "strokeColor": "#000000", "id": "td", "textAlign": "left", "verticalAlign": "top" },
+    { "type": "rectangle", "x": 350, "y": 335, "width": 320, "height": 80, "strokeColor": "#107C10", "backgroundColor": "#DFF6DD", "fillStyle": "solid", "strokeWidth": 1, "roundness": { "type": 3 }, "id": "b_delegate" },
+    { "type": "text", "x": 365, "y": 352, "width": 290, "height": 55, "text": "③ DELEGATE\npick worker(s), run parallel, stitch", "fontSize": 13, "fontFamily": 2, "strokeColor": "#000000", "id": "tdel", "textAlign": "left", "verticalAlign": "top" },
+    { "type": "rectangle", "x": 350, "y": 430, "width": 320, "height": 75, "strokeColor": "#107C10", "backgroundColor": "#DFF6DD", "fillStyle": "solid", "strokeWidth": 1, "roundness": { "type": 3 }, "id": "b_report" },
+    { "type": "text", "x": 365, "y": 448, "width": 290, "height": 50, "text": "④ REPORT\nbrief · quiet pings · wrap-up", "fontSize": 13, "fontFamily": 2, "strokeColor": "#000000", "id": "trep", "textAlign": "left", "verticalAlign": "top" },
+
+    { "type": "rectangle", "x": 750, "y": 90, "width": 250, "height": 360, "strokeColor": "#5C2D91", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "roundness": { "type": 3 }, "id": "c_workers" },
+    { "type": "text", "x": 770, "y": 100, "width": 220, "height": 40, "text": "WORKERS\n(Foundry agents, called as tools)", "fontSize": 13, "fontFamily": 2, "strokeColor": "#000000", "id": "t_workers", "textAlign": "left", "verticalAlign": "top" },
+    { "type": "rectangle", "x": 770, "y": 150, "width": 210, "height": 45, "strokeColor": "#5C2D91", "backgroundColor": "#E8DAEF", "fillStyle": "solid", "strokeWidth": 1, "roundness": { "type": 3 }, "id": "w_ai" },
+    { "type": "text", "x": 785, "y": 162, "width": 185, "height": 22, "text": "Account Intelligence", "fontSize": 13, "fontFamily": 2, "strokeColor": "#000000", "id": "tw_ai", "textAlign": "left", "verticalAlign": "top" },
+    { "type": "rectangle", "x": 770, "y": 205, "width": 210, "height": 45, "strokeColor": "#5C2D91", "backgroundColor": "#E8DAEF", "fillStyle": "solid", "strokeWidth": 1, "roundness": { "type": 3 }, "id": "w_demo" },
+    { "type": "text", "x": 785, "y": 217, "width": 185, "height": 22, "text": "Demo Builder", "fontSize": 13, "fontFamily": 2, "strokeColor": "#000000", "id": "tw_demo", "textAlign": "left", "verticalAlign": "top" },
+    { "type": "rectangle", "x": 770, "y": 260, "width": 210, "height": 45, "strokeColor": "#5C2D91", "backgroundColor": "#E8DAEF", "fillStyle": "solid", "strokeWidth": 1, "roundness": { "type": 3 }, "id": "w_env" },
+    { "type": "text", "x": 785, "y": 272, "width": 185, "height": 22, "text": "Envisioning Prep", "fontSize": 13, "fontFamily": 2, "strokeColor": "#000000", "id": "tw_env", "textAlign": "left", "verticalAlign": "top" },
+    { "type": "rectangle", "x": 770, "y": 315, "width": 210, "height": 55, "strokeColor": "#5C2D91", "backgroundColor": "#E8DAEF", "fillStyle": "solid", "strokeWidth": 1, "roundness": { "type": 3 }, "id": "w_pipe" },
+    { "type": "text", "x": 785, "y": 325, "width": 185, "height": 40, "text": "Pipeline/MSX\n(MSX Helper app via MCP)", "fontSize": 12, "fontFamily": 2, "strokeColor": "#000000", "id": "tw_pipe", "textAlign": "left", "verticalAlign": "top" },
+    { "type": "rectangle", "x": 770, "y": 385, "width": 210, "height": 45, "strokeColor": "#5C2D91", "backgroundColor": "#E8DAEF", "fillStyle": "solid", "strokeWidth": 1, "roundness": { "type": 3 }, "id": "w_comp" },
+    { "type": "text", "x": 785, "y": 397, "width": 185, "height": 22, "text": "Compete", "fontSize": 13, "fontFamily": 2, "strokeColor": "#000000", "id": "tw_comp", "textAlign": "left", "verticalAlign": "top" },
+
+    { "type": "ellipse", "x": 770, "y": 470, "width": 230, "height": 90, "strokeColor": "#0C8599", "backgroundColor": "#99E9F2", "fillStyle": "solid", "strokeWidth": 2, "roundness": { "type": 2 }, "id": "user" },
+    { "type": "text", "x": 790, "y": 490, "width": 195, "height": 50, "text": "👤 User\nbrief + approval taps only", "fontSize": 13, "fontFamily": 2, "strokeColor": "#000000", "id": "t_user", "textAlign": "center", "verticalAlign": "top" },
+
+    { "type": "rectangle", "x": 330, "y": 580, "width": 360, "height": 60, "strokeColor": "#1e1e1e", "backgroundColor": "#F3F2F1", "fillStyle": "solid", "strokeWidth": 1, "roundness": { "type": 3 }, "id": "gov" },
+    { "type": "text", "x": 348, "y": 597, "width": 330, "height": 30, "text": "GOVERNANCE: Entra Agent ID · Purview / Defender", "fontSize": 13, "fontFamily": 2, "strokeColor": "#000000", "id": "t_gov", "textAlign": "left", "verticalAlign": "top" },
+
+    { "type": "arrow", "x": 272, "y": 300, "width": 74, "height": 0, "strokeColor": "#0078D4", "strokeWidth": 2, "points": [[0, 0], [74, 0]], "id": "a_sig_brain", "startBinding": { "elementId": "c_signals", "focus": 0, "gap": 2 }, "endBinding": { "elementId": "b_perceive", "focus": 0, "gap": 2 } },
+    { "type": "arrow", "x": 692, "y": 300, "width": 74, "height": 0, "strokeColor": "#5C2D91", "strokeWidth": 2, "points": [[0, 0], [74, 0]], "id": "a_brain_work", "startBinding": { "elementId": "b_delegate", "focus": 0, "gap": 2 }, "endBinding": { "elementId": "c_workers", "focus": 0, "gap": 2 } },
+    { "type": "arrow", "x": 692, "y": 467, "width": 80, "height": 45, "strokeColor": "#0C8599", "strokeWidth": 2, "points": [[0, 0], [80, 45]], "id": "a_report_user", "startBinding": { "elementId": "b_report", "focus": 0, "gap": 2 }, "endBinding": { "elementId": "user", "focus": 0, "gap": 2 } },
+    { "type": "arrow", "x": 760, "y": 350, "width": 980, "height": 90, "strokeColor": "#107C10", "strokeWidth": 2, "points": [[0, 0], [-380, 30]], "id": "a_pipe_msx", "startBinding": { "elementId": "w_pipe", "focus": 0, "gap": 2 }, "endBinding": { "elementId": "b_msx", "focus": 0, "gap": 2 } }
+  ],
+  "appState": { "viewBackgroundColor": "#ffffff" }
+}

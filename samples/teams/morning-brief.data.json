@@ -1,0 +1,40 @@
+{
+  "user": "Amira",
+  "date": "Thursday, June 18",
+  "meetings": {
+    "count": 3,
+    "items": [
+      { "time": "10:00", "customer": "Contoso", "kind": "Azure Data Strategy", "status": "brief ready ✅" },
+      { "time": "14:00", "customer": "Northwind", "kind": "AI Foundry deep-dive", "status": "brief ready ✅" },
+      { "time": "16:30", "customer": "Internal", "kind": "pod sync", "status": "no prep needed" }
+    ]
+  },
+  "decisions": {
+    "count": 2,
+    "items": [
+      {
+        "index": 1,
+        "summary": "Reply to Maersk TDM on AKS landing-zone architecture (drafted)",
+        "action_id": "act-maersk-reply",
+        "draft_id": ""
+      },
+      {
+        "index": 2,
+        "summary": "Commit MSX milestone \"Technical Decision\" on Fabrikam Data Platform",
+        "action_id": "act-fabrikam-commit",
+        "draft_id": "draft-abc123"
+      }
+    ]
+  },
+  "handled": [
+    "Built the Contoso + Northwind meeting briefs",
+    "Drafted reply to Novo Nordisk's licensing question",
+    "Blocked 15:00–16:00 Thu for AZ-204 Module 4",
+    "Archived 11 newsletters / FYIs"
+  ],
+  "deadlines": [
+    { "item": "AZ-204 Module 4", "due": "Fri Jun 19", "blocked": "15:00–16:00 today" },
+    { "item": "Q4 quota acknowledgement", "due": "Mon Jun 22", "blocked": "reminder set" }
+  ],
+  "pipeline": { "count": 2 }
+}

@@ -1,0 +1,201 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Cloud MSX Worker",
+    "description": "Microsoft Sales Experience (Dynamics CRM) tool for the Chief of Staff orchestrator. Read pipeline/account data and stage approval-gated updates. Hosted replacement for the local MSX Helper app.",
+    "version": "0.1.0"
+  },
+  "host": "REPLACE_WITH_MSX_WORKER_HOST",
+  "basePath": "/",
+  "schemes": ["https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "securityDefinitions": {
+    "approval_token": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "x-approval-token",
+      "description": "Approval token required only to commit a staged draft (APPROVE-FIRST guardrail). Supplied by the orchestrator after the user taps Approve."
+    }
+  },
+  "paths": {
+    "/healthz": {
+      "get": {
+        "operationId": "HealthCheck",
+        "summary": "Health check",
+        "description": "Liveness probe and MSX availability.",
+        "responses": {
+          "200": {
+            "description": "Service healthy",
+            "schema": { "$ref": "#/definitions/HealthResponse" }
+          }
+        }
+      }
+    },
+    "/msx/tools": {
+      "get": {
+        "operationId": "GetToolDescriptor",
+        "summary": "Get MSX tool descriptor",
+        "description": "Returns the MCP-compatible tool descriptor and availability.",
+        "responses": {
+          "200": {
+            "description": "Tool descriptor",
+            "schema": { "$ref": "#/definitions/ToolsResponse" }
+          }
+        }
+      }
+    },
+    "/msx/query": {
+      "post": {
+        "operationId": "QueryMsx",
+        "summary": "Query MSX (Dynamics CRM)",
+        "description": "Read open opportunities, accounts, contacts, or recent activities, optionally filtered by account name.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/QueryRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Query result",
+            "schema": { "$ref": "#/definitions/QueryResponse" }
+          },
+          "400": { "description": "Unsupported operation" },
+          "502": { "description": "CRM error" }
+        }
+      }
+    },
+    "/msx/draft": {
+      "post": {
+        "operationId": "StageDraft",
+        "summary": "Stage a draft MSX update",
+        "description": "Stage a write (e.g. a milestone update) and return a draft_id. Nothing is written to CRM until committed.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/DraftRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft staged",
+            "schema": { "$ref": "#/definitions/DraftResponse" }
+          }
+        }
+      }
+    },
+    "/msx/commit": {
+      "post": {
+        "operationId": "CommitDraft",
+        "summary": "Commit a staged draft (requires approval)",
+        "description": "Commit a previously staged draft. Requires the x-approval-token header (APPROVE-FIRST). Call only after the user has approved.",
+        "security": [{ "approval_token": [] }],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/CommitRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft committed",
+            "schema": { "$ref": "#/definitions/CommitResponse" }
+          },
+          "403": { "description": "Missing or invalid approval token" },
+          "404": { "description": "Unknown draft_id" }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "HealthResponse": {
+      "type": "object",
+      "properties": {
+        "status": { "type": "string", "description": "ok" },
+        "msx_available": { "type": "boolean", "description": "Whether the MSX tool can run" }
+      }
+    },
+    "ToolsResponse": {
+      "type": "object",
+      "properties": {
+        "tool": { "type": "object", "description": "MCP-compatible tool descriptor" },
+        "available": { "type": "boolean" }
+      }
+    },
+    "QueryRequest": {
+      "type": "object",
+      "required": ["operation"],
+      "properties": {
+        "operation": {
+          "type": "string",
+          "description": "Which read to perform.",
+          "enum": ["open_opportunities", "accounts", "contacts", "recent_activities"]
+        },
+        "account_name": {
+          "type": "string",
+          "description": "Optional account display name to filter by."
+        },
+        "top": {
+          "type": "integer",
+          "description": "Max records to return (1-50).",
+          "default": 10
+        }
+      }
+    },
+    "QueryResponse": {
+      "type": "object",
+      "properties": {
+        "ok": { "type": "boolean" },
+        "data": { "type": "object", "description": "Operation-specific result payload" }
+      }
+    },
+    "DraftRequest": {
+      "type": "object",
+      "required": ["operation"],
+      "properties": {
+        "operation": {
+          "type": "string",
+          "description": "Draft write operation, e.g. draft_milestone_update.",
+          "default": "draft_milestone_update"
+        },
+        "opportunity_id": {
+          "type": "string",
+          "description": "CRM opportunity id the draft applies to."
+        },
+        "payload": {
+          "type": "object",
+          "description": "Fields to update in the draft."
+        }
+      }
+    },
+    "DraftResponse": {
+      "type": "object",
+      "properties": {
+        "ok": { "type": "boolean" },
+        "draft_id": { "type": "string", "description": "Use this id to commit after approval." },
+        "staged": { "type": "object" }
+      }
+    },
+    "CommitRequest": {
+      "type": "object",
+      "required": ["draft_id"],
+      "properties": {
+        "draft_id": { "type": "string", "description": "The draft_id returned by StageDraft." }
+      }
+    },
+    "CommitResponse": {
+      "type": "object",
+      "properties": {
+        "ok": { "type": "boolean" },
+        "committed": { "type": "object" }
+      }
+    }
+  }
+}

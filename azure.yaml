@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+name: se-agent-cloud-msx-worker
+metadata:
+  template: se-agent-cloud-msx-worker@0.1.0
+
+services:
+  msx-worker:
+    project: .
+    language: docker
+    host: containerapp
+    docker:
+      path: ./Dockerfile
+      context: .
+
+hooks:
+  postprovision:
+    shell: sh
+    continueOnError: true
+    run: |
+      echo "Cloud MSX Worker deployed."
+      echo "Wire this URL into Copilot Studio as the Pipeline/MSX tool:"
+      echo "  MSX_WORKER_URL = $MSX_WORKER_URL"

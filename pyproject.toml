@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "se-agent"
+version = "0.1.0"
+description = "Solution Engineer agent with pluggable tools, including an MSX (Dynamics CRM) tool."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "httpx>=0.27"]
+live = ["msal>=1.28", "httpx>=0.27", "openai>=1.40"]
+worker = ["fastapi>=0.110", "uvicorn>=0.29", "pydantic>=2", "msal>=1.28", "httpx>=0.27"]
+
+[project.scripts]
+se-agent = "se_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

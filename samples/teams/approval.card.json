@@ -1,0 +1,52 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Approve outbound: ${title}",
+      "weight": "Bolder",
+      "size": "Medium",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "${context}",
+      "wrap": true,
+      "spacing": "Small"
+    },
+    {
+      "type": "Container",
+      "style": "emphasis",
+      "items": [
+        { "type": "TextBlock", "text": "${preview}", "wrap": true, "isSubtle": true }
+      ]
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        { "title": "Kind", "value": "${kind}" },
+        { "title": "Target", "value": "${target}" }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Approve",
+      "style": "positive",
+      "data": { "decision": "approve", "action_id": "${action_id}", "draft_id": "${draft_id}" }
+    },
+    {
+      "type": "Action.Submit",
+      "title": "Edit",
+      "data": { "decision": "edit", "action_id": "${action_id}" }
+    },
+    {
+      "type": "Action.Submit",
+      "title": "Skip",
+      "data": { "decision": "skip", "action_id": "${action_id}" }
+    }
+  ]
+}
