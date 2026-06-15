@@ -11,3 +11,6 @@ dist/
 .env
 *.local
 .DS_Store
+
+# azd environment config (may contain endpoints/values)
+.azure/
